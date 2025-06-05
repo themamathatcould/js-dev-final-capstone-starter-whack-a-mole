@@ -1,15 +1,20 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
-// TODO: Add the missing query selectors:
+// Add querySelector for difficulty radio buttons
+document.querySelectorAll('input[name="difficulty"]').forEach(radio => {
+  if (radio.value === "normal") radio.checked = true;
+});
+//Add the missing query selectors:
 const score = document.querySelector('#score'); // use querySelector() to get the score element.
 const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
+const difficultyDisplay = document.querySelector('#difficulty-display');
 
 let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "hard";
+let difficulty = "normal";
 
 /**
  * Generates a random integer within a range.
@@ -204,9 +209,10 @@ function clearScore() {
 *
 */
 function updateTimer() {
-  // TODO: Write your code here.
-  // hint: this code is provided to you in the instructions.
-  
+   if (time > 0){
+    time -= 1;
+    timerDisplay.textContent = time;
+  }
   return time;
 }
 
@@ -217,8 +223,7 @@ function updateTimer() {
 *
 */
 function startTimer() {
-  // TODO: Write your code here
-  // timer = setInterval(updateTimer, 1000);
+    timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -287,6 +292,10 @@ function stopGame(){
  * Note: Simply uncommenting `setDuration(10);` and `showUp();` is not enough. To make the game work, ensure all necessary functions listed above are called to initialize the score, timer, event listeners, and mole appearances. 
 */
 function startGame(){
+  // Get selected difficulty
+  const selected = document.querySelector('input[name="difficulty"]:checked');
+  if (selected) difficulty = selected.value;
+  updateDifficultyDisplay();
   clearScore();
   stopGame();   //optional
   setDuration(10);
@@ -296,8 +305,23 @@ function startGame(){
   return "game started";
 }
 
+function updateDifficultyDisplay() {
+  if (difficultyDisplay) {
+    // Capitalize first letter
+    difficultyDisplay.textContent = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+  }
+}
+
 startButton.addEventListener("click", startGame);
 
+// Also update display on difficulty change
+const difficultyRadios = document.querySelectorAll('input[name="difficulty"]');
+difficultyRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    difficulty = radio.value;
+    updateDifficultyDisplay();
+  });
+});
 
 // Please do not modify the code below.
 // Used for testing purposes.

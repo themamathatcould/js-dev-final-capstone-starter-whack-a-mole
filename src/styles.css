@@ -80,3 +80,52 @@ h2 {
   top: 0;
   /*transform: scale(1.1);*/
 }
+/* 
+.controls-container {
+  display: flex;
+  align-items: flex-start;
+}
+.difficulty-column {
+  margin-right: 64px;
+  min-width: 160px;
+  padding: 24px 20px 24px 20px;
+  background: rgba(62, 42, 2, 0.756);
+  border-radius: 12px;
+}
+.difficulty-column h2 {
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+.difficulty-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.difficulty-options label {
+  color: white;
+}
+.difficulty-options input[type="radio"] {
+  accent-color: #fff;
+}
+.main-controls {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 601px) {
+  .controls-container {
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .controls-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .difficulty-column {
+    margin-right: 0;
+    margin-bottom: 16px;
+  } 
+}*/
