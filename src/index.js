@@ -174,8 +174,11 @@ function toggleVisibility(hole){
 *
 */
 function updateScore() {
-  // TODO: Write your code here
-
+  // Increment the points global variable by 1 point
+  points += 1;
+  // Update score.textContent with points.
+  score.textContent = points;
+  // Return points;
   return points;
 }
 
@@ -187,9 +190,11 @@ function updateScore() {
 *
 */
 function clearScore() {
-  // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  // set the points global variable to 0
+  points = 0;
+  // update score.textContent 
+  score.textContent = points;
+  // return points;
   return points;
 }
 
@@ -226,8 +231,7 @@ function startTimer() {
 *
 */
 function whack(event) {
-  // TODO: Write your code here.
-  // call updateScore()
+  updateScore();
   return points;
 }
 
@@ -237,8 +241,9 @@ function whack(event) {
 * for an example on how to set event listeners using a for loop.
 */
 function setEventListeners(){
-  // TODO: Write your code here
-
+  moles.forEach(
+    mole => mole.addEventListener('click', whack)
+  );
   return moles;
 }
 
