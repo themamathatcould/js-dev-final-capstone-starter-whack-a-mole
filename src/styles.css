@@ -1,4 +1,8 @@
+/* Import Luckiest Guy from Google Fonts for a fun arcade look */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 html {
+  /* Set the background image for the game area */
   /*background: url('./assets/background.png') no-repeat center center fixed;*/
   background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed;
   box-sizing: border-box;
@@ -11,14 +15,16 @@ html {
 }
 
 h1 {
+  /* Main game title styling */
   text-align: center;
   font-size: 90px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: 'Luckiest Guy', 'Comic Sans MS', 'Comic Sans', cursive;
   color: white;
   -webkit-text-stroke: 2px black;
 }
 
 h2 {
+  /* Subheading and scoreboard styling */
   text-align: center;
   font-size: 40px;
   color: white;
@@ -26,15 +32,18 @@ h2 {
 }
 
 #start {
+    /* Start button styling */
     text-align: center;
     font-size: 30px;
 }
 
 #timer{
+    /* Timer text color */
     color: white;
 }
 
 .grid {
+  /* Game grid for holes and moles */
   width: 600px;
   height: 400px;
   display: flex;
@@ -44,12 +53,14 @@ h2 {
 }
 
 .hole {
+  /* Each hole in the grid */
   flex: 1 0 33.33%;
   overflow: hidden;
   position: relative;
 }
 
 .hole:after {
+  /* Visual for the dirt hole overlay */
   display: block;
   /*background: url("./assets/hole.png") bottom center no-repeat;*/
   background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;
@@ -64,6 +75,7 @@ h2 {
 }
 
 .mole {
+  /* Mole sprite styling and animation */
   /*background:url('./assets/mole.png') bottom center no-repeat;*/
   background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat;
   background-size: 40%;
@@ -71,61 +83,23 @@ h2 {
   top: 100%;
   width: 100%;
   height: 100%;
-  /*transition: transform 0.5s;*/
-  transition: all 1s;
+  /* Animate the mole popping up and down */
+  transition: top 0.3s cubic-bezier(.4,2,.6,1), background 0s;
   pointer-events:auto;
 }
 
 .hole.show .mole {
+  /* Show the mole when the hole has the 'show' class */
   top: 0;
   /*transform: scale(1.1);*/
 }
-/* 
-.controls-container {
-  display: flex;
-  align-items: flex-start;
+
+body {
+  /* Set the default font for the game */
+  font-family: 'Luckiest Guy', 'Comic Sans MS', 'Comic Sans', cursive;
 }
-.difficulty-column {
-  margin-right: 64px;
-  min-width: 160px;
-  padding: 24px 20px 24px 20px;
-  background: rgba(62, 42, 2, 0.756);
-  border-radius: 12px;
-}
-.difficulty-column h2 {
-  font-size: 1.1em;
-  margin-bottom: 0.5em;
-}
-.difficulty-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-.difficulty-options label {
-  color: white;
-}
-.difficulty-options input[type="radio"] {
-  accent-color: #fff;
-}
-.main-controls {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-@media (min-width: 601px) {
-  .controls-container {
-    justify-content: center;
-  }
-}
-@media (max-width: 600px) {
-  .controls-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .difficulty-column {
-    margin-right: 0;
-    margin-bottom: 16px;
-  } 
-}*/
+
+/*
+.controls-container, .difficulty-column, .main-controls, etc.
+are commented out but can be used for advanced layouts.
+*/
